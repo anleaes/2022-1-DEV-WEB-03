@@ -27,7 +27,8 @@
                         <a class="dropdown-item" href="#">Agendamento de Consultas</a>
                         <a class="dropdown-item" href="#">Agendamento de Exames</a>
                         <a class="dropdown-item" href="#">Resultado de Exames</a>
-                        <a class="dropdown-item" href="#">Médicos</a>  
+                        <a class="dropdown-item" href="{% url 'medics:list_medics' %}">Médicos</a>
+                        <a class="dropdown-item" href="{% url 'pacients:list_pacients' %}">Pacientes</a>  
                     </div>
                 </li>
             </ul>

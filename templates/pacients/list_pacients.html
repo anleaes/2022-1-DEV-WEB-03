@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block title %}
+
+    Lista de Pacientes - {{ block.super }}
+
+{% endblock title %}
+
+{% block body %}
+
+    <div class="container">
+        <br />
+        <h5><b>Lista de Pacientes</b></h5>
+        <div class="row">
+            <div class ="col-md-12">
+                <br />
+                    <a href="{% url 'pacients:add_pacient' %}">Cadastro de novo paciente</a>
+                <br />
+                <br />
+                <table class="table table-hover">
+                <thead>
+                    <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">CPF</th>
+                    <th scope="col">Data de Nascimento</th>
+                    <th scope="col">Endereco</th>
+                    <th scope="col">Telefone</th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for pacient in pacients %}
+                        <tr>
+                            <th scope="row">{{ pacient.id }}</th>
+                            <td>{{ pacient.name }}</td>
+                            <td>{{ pacient.cpf }}</td>
+                            <td>{{ pacient.bdate }}</td>
+                            <td>{{ pacient.address }}</td>
+                            <td>{{ pacient.phone }}</td>
+                            <td>
+                                <a href="{% url 'pacients:edit_pacient' pacient.id %}" class="btn btn-primary btn-sm">Editar</a>
+                            </td>
+                            <td>
+                                <a href="{% url 'pacients:delete_pacient' pacient.id %}" class="btn btn-danger btn-sm ">Excluir</a>
+                            </td>
+                        </tr> 
+                    {% endfor %}
+                </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+{% endblock body %}
+

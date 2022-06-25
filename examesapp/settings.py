@@ -50,7 +50,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'widget_tweaks',
     'core.apps.CoreConfig',
-    
+    'medics.apps.MedicsConfig',
+    'pacients.apps.PacientsConfig',
     
 ]
 
