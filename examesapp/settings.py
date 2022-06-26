@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'pacients.apps.PacientsConfig',
     'schedules.apps.SchedulesConfig',
     'exams.apps.ExamsConfig',
+    'accounts.apps.AccountsConfig',
     
 ]
 

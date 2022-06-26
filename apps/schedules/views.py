@@ -1,4 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
+from django.contrib.auth.decorators import login_required
 
 from .forms import ScheduleForm
 from .models import Schedule
@@ -19,6 +20,7 @@ def add_schedule(request):
     context['form'] = form
     return render(request, template_name, context)
 
+@login_required(login_url='/contas/login/')
 def list_schedules(request):
     template_name = 'schedules/list_schedules.html'
     schedules = Schedule.objects.filter()

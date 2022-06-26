@@ -1,4 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
+from django.contrib.auth.decorators import login_required
 
 from .forms import ExamForm
 from .models import Exam
@@ -19,6 +20,7 @@ def add_exam(request):
     context['form'] = form
     return render(request, template_name, context)
 
+@login_required(login_url='/contas/login/')
 def list_exams(request):
     template_name = 'exams/list_exams.html'
     exams = Exam.objects.filter()
