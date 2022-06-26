@@ -2,7 +2,7 @@
 
 {% block title %}
 
-    Exames Agendados - {{ block.super }}
+    Resultados de Exames - {{ block.super }}
 
 {% endblock title %}
 
@@ -10,11 +10,11 @@
 
     <div class="container">
         <br />
-        <h5><b>Exames Agendados</b></h5>
+        <h5><b>Resultados de Exames</b></h5>
         <div class="row">
             <div class ="col-md-12">
                 <br />
-                    <a href="{% url 'schedules:add_schedule' %}">Agende seu Exame</a>
+                    <a href="{% url 'exams:add_exam' %}">Registrar Resultado de Exame</a>
                 <br />
                 <br />
                 <table class="table table-hover">
@@ -22,28 +22,26 @@
                     <tr>
                     <th scope="col">#</th>
                     <th scope="col">Talao</th>
-                    <th scope="col">Tipo</th>
-                    <th scope="col">Data do Exame</th>
-                    <th scope="col">Medico</th>
+                    <th scope="col">Data de Realizacao</th>
                     <th scope="col">Paciente</th>
+                    <th scope="col">Status</th>
                     <th scope="col"></th>
                     <th scope="col"></th>
                     </tr>
                 </thead>
                 <tbody>
-                    {% for schedule in schedules %}
+                    {% for exam in exams %}
                         <tr>
-                            <th scope="row">{{ schedule.id }}</th>
-                            <td>{{ schedule.bead }}</td>
-                            <td>{{ schedule.type }}</td>
-                            <td>{{ schedule.date }}</td>
-                            <td>{{ schedule.medic }}</td>
-                            <td>{{ schedule.pacient }}</td>
+                            <th scope="row">{{ exam.id }}</th>
+                            <td>{{ exam.schedule }}</td>
+                            <td>{{ exam.date }}</td>
+                            <td>{{ exam.pacient }}</td>
+                            <td>{{ exam.status }}</td>
                             <td>
-                                <a href="{% url 'schedules:edit_schedule' schedule.id %}" class="btn btn-primary btn-sm">Editar</a>
+                                <a href="{% url 'exams:edit_exam' exam.id %}" class="btn btn-primary btn-sm">Editar</a>
                             </td>
                             <td>    
-                                <a href="{% url 'schedules:delete_schedule' schedule.id %}" class="btn btn-danger btn-sm ">Cancelar</a>
+                                <a href="{% url 'exams:delete_exam' exam.id %}" class="btn btn-danger btn-sm ">Excluir</a>
                             </td>
                         </tr> 
                     {% endfor %}

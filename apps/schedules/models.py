@@ -9,7 +9,8 @@ class Schedule(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
     type = models.CharField('Tipo de Exame', max_length=50)
-    date = models.DateField('Data do Exame', auto_now=False, auto_now_add=False) 
+    date = models.DateField('Data do Exame', auto_now=False, auto_now_add=False)
+    bead = models.CharField('Talao', max_length=50) 
     medic = models.ForeignKey(Medic, on_delete=models.CASCADE)
     pacient = models.ForeignKey(Pacient, on_delete=models.CASCADE)
     
@@ -19,4 +20,4 @@ class Schedule(models.Model):
         ordering =['id']
 
     def __str__(self):
-        return self.type
+        return self.bead
